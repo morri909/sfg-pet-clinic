@@ -4,7 +4,7 @@
 
     <groupId>com.spydrone</groupId>
     <artifactId>sfg-pet-clinic</artifactId>
-    <version>0.0.1</version>
+    <version>1.0.1</version>
 
     <packaging>pom</packaging>
 
