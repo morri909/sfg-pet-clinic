@@ -4,7 +4,7 @@
 
     <groupId>com.spydrone</groupId>
     <artifactId>sfg-pet-clinic</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.1.SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
@@ -46,7 +46,6 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/morri909/sfg-pet-clinic.git</developerConnection>
-      <tag>sfg-pet-clinic-0.0.1</tag>
   </scm>
 
 </project>
