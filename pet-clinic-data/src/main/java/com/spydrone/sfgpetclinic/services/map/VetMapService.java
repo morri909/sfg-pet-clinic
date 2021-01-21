@@ -2,9 +2,11 @@ package com.spydrone.sfgpetclinic.services.map;
 
 import com.spydrone.sfgpetclinic.model.Vet;
 import com.spydrone.sfgpetclinic.services.VetService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
 
 	@Override
