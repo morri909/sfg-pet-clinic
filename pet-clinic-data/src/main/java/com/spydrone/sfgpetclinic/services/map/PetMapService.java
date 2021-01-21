@@ -1,11 +1,11 @@
 package com.spydrone.sfgpetclinic.services.map;
 
 import com.spydrone.sfgpetclinic.model.Pet;
-import com.spydrone.sfgpetclinic.services.CrudService;
+import com.spydrone.sfgpetclinic.services.PetService;
 
 import java.util.Set;
 
-public class PetMapService extends AbstractMapService<Pet, Long> implements CrudService<Pet, Long> {
+public class PetMapService extends AbstractMapService<Pet, Long> implements PetService {
 
 	@Override
 	public Set<Pet> findAll() {
