@@ -3,12 +3,14 @@ package com.spydrone.sfgpetclinic.services.jpa;
 import com.spydrone.sfgpetclinic.model.Specialty;
 import com.spydrone.sfgpetclinic.repositories.SpecialtyRepository;
 import com.spydrone.sfgpetclinic.services.SpecialtyService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Service
+@Profile("jpa")
 public class SpecialtyJpaService implements SpecialtyService {
 
 	private final SpecialtyRepository specialtyRepository;
