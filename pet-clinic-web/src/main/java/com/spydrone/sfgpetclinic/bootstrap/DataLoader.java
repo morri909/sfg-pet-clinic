@@ -1,10 +1,7 @@
 package com.spydrone.sfgpetclinic.bootstrap;
 
 import com.spydrone.sfgpetclinic.model.*;
-import com.spydrone.sfgpetclinic.services.OwnerService;
-import com.spydrone.sfgpetclinic.services.PetTypeService;
-import com.spydrone.sfgpetclinic.services.SpecialtyService;
-import com.spydrone.sfgpetclinic.services.VetService;
+import com.spydrone.sfgpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,17 +14,20 @@ public class DataLoader implements CommandLineRunner {
 	private final PetTypeService petTypeService;
 	private final SpecialtyService specialtyService;
 	private final VetService vetService;
+	private final VisitService visitService;
 
 	public DataLoader(
 			OwnerService ownerService,
 			PetTypeService petTypeService,
 			SpecialtyService specialtyService,
-			VetService vetService
-	) {
+			VetService vetService,
+			VisitService visitService
+		) {
 		this.ownerService = ownerService;
 		this.petTypeService = petTypeService;
 		this.specialtyService = specialtyService;
 		this.vetService = vetService;
+		this.visitService = visitService;
 	}
 
 	@Override
@@ -79,6 +79,14 @@ public class DataLoader implements CommandLineRunner {
 
 		owner2.getPets().add(pet2);
 		ownerService.save(owner2);
+
+		Visit visit1 = new Visit();
+		visit1.setPet(pet2);
+		visit1.setDate(LocalDate.now());
+		visit1.setDescription("Check-up");
+		visitService.save(visit1);
+
+		System.out.println("Loaded visits");
 
 		Owner owner3 = new Owner();
 		owner3.setFirstName("Elgton");
