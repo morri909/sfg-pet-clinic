@@ -6,6 +6,7 @@ import org.hamcrest.Matchers;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -79,6 +80,19 @@ public class OwnerControllerTest {
 				.andExpect(status().isFound())
 				.andExpect(view().name("redirect:/owners/1"))
 				.andExpect(model().attribute("owner", Matchers.any(Owner.class)));
+	}
+
+	@Test
+	void processFindFormEmptyReturnMany() throws Exception {
+		Mockito.when(ownerService.findAllByLastNameLike(ArgumentMatchers.anyString()))
+				.thenReturn(Arrays.asList(Owner.builder().id(1l).build(),
+						Owner.builder().id(2l).build()));
+
+		mockMvc.perform(get("/owners")
+				.param("lastName",""))
+				.andExpect(status().isOk())
+				.andExpect(view().name("owners/ownersList"))
+				.andExpect(model().attribute("selections", Matchers.hasSize(2)));;
 	}
 
 	@Test
